@@ -16,5 +16,10 @@ namespace TAKE_Client
         {
             InitializeComponent();            
         }
+
+        private void buttonShowAllTeachers_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(HTTP.GetTeachers());
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace TAKE_Client
@@ -31,6 +32,20 @@ namespace TAKE_Client
             return textResponse;
         }
 
+        static string DoGet(string url)
+        {
+            WebRequest request = WebRequest.Create(server + url);
+            request.Method = "GET";
+            request.ContentType = "application/xml";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string textResponse = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+            return textResponse;
+        }
+
         public static string NewTeacher(string name, string surname)
         {
             XElement request =
@@ -39,6 +54,50 @@ namespace TAKE_Client
                         new XElement("lastName", surname)
                     );
             return DoPost("teacher", request);
+        }
+
+        public static string GetTeachers()
+        {
+            StringBuilder output = new StringBuilder();
+
+            String xmlString = DoGet("teacher");
+            // Create an XmlReader
+            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
+            {
+                XmlWriterSettings ws = new XmlWriterSettings();
+                ws.Indent = true;
+                ws.OmitXmlDeclaration = true;
+                using (XmlWriter writer = XmlWriter.Create(output, ws))
+                {
+
+                    // Parse the file and display each of the nodes.
+                    while (reader.Read())
+                    {
+                        switch (reader.NodeType)
+                        {
+                            case XmlNodeType.Element:
+                                //writer.WriteStartElement(reader.Name);      
+                                writer.WriteStartElement(reader.Name + reader.GetAttribute("idt"));
+                                break;
+                            case XmlNodeType.Text:
+                                writer.WriteString(reader.Value);
+                                break;
+                            case XmlNodeType.XmlDeclaration:
+                            case XmlNodeType.ProcessingInstruction:
+                                writer.WriteProcessingInstruction(reader.Name, reader.Value);
+                                break;
+                            case XmlNodeType.Comment:
+                                writer.WriteComment(reader.Value);
+                                break;
+                            case XmlNodeType.EndElement:
+                                writer.WriteFullEndElement();
+                                break;
+                        }
+                    }
+
+                }
+            }
+            return output.ToString();
         }
     }
 }
