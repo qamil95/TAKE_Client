@@ -56,6 +56,18 @@ namespace TAKE_Client
             return DoPost("teacher", request);
         }
 
+        public static string NewSurvey(string date, string description, string[] questions)
+        {
+            XElement request =
+                new XElement("survey",
+                    new XElement("date", date),
+                    new XElement("descritpion", description)
+                    );
+            foreach (string question in questions)
+                request.Add(new XElement("questions", new XElement("text", question)));
+            return DoPost("survey", request);
+        }
+
         public static string GetTeachers()
         {
             StringBuilder output = new StringBuilder();

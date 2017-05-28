@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace TAKE_Client
 {
-    public partial class CreateNewTeacher : UserControl
+    public partial class CreateTeacher : UserControl
     {
-        public CreateNewTeacher()
+        public CreateTeacher()
         {
             InitializeComponent();
         }

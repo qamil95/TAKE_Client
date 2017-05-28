@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateNewTeacher.cs">
+    <Compile Include="CreateSurvey.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CreateNewTeacher.Designer.cs">
-      <DependentUpon>CreateNewTeacher.cs</DependentUpon>
+    <Compile Include="CreateSurvey.Designer.cs">
+      <DependentUpon>CreateSurvey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTeacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateTeacher.Designer.cs">
+      <DependentUpon>CreateTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -61,8 +67,11 @@
     <Compile Include="HTTP.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CreateNewTeacher.resx">
-      <DependentUpon>CreateNewTeacher.cs</DependentUpon>
+    <EmbeddedResource Include="CreateSurvey.resx">
+      <DependentUpon>CreateSurvey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateTeacher.resx">
+      <DependentUpon>CreateTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
