@@ -32,6 +32,51 @@ namespace TAKE_Client
             return textResponse;
         }
 
+        public static string GetSurveys()
+        {
+            StringBuilder output = new StringBuilder();
+
+            String xmlString = DoGet("survey");
+            // Create an XmlReader
+            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
+            {
+                XmlWriterSettings ws = new XmlWriterSettings();
+                ws.Indent = true;
+                ws.OmitXmlDeclaration = true;
+                using (XmlWriter writer = XmlWriter.Create(output, ws))
+                {
+
+                    // Parse the file and display each of the nodes.
+                    while (reader.Read())
+                    {
+                        switch (reader.NodeType)
+                        {
+                            case XmlNodeType.Element:
+                                //writer.WriteStartElement(reader.Name);      
+                                writer.WriteStartElement(reader.Name + reader.GetAttribute("idq")+ reader.GetAttribute("ids"));
+                                break;
+                            case XmlNodeType.Text:
+                                writer.WriteString(reader.Value);
+                                break;
+                            case XmlNodeType.XmlDeclaration:
+                            case XmlNodeType.ProcessingInstruction:
+                                writer.WriteProcessingInstruction(reader.Name, reader.Value);
+                                break;
+                            case XmlNodeType.Comment:
+                                writer.WriteComment(reader.Value);
+                                break;
+                            case XmlNodeType.EndElement:
+                                writer.WriteFullEndElement();
+                                break;
+                        }
+                    }
+
+                }
+            }
+            return output.ToString();
+        }
+    
+
         static string DoGet(string url)
         {
             WebRequest request = WebRequest.Create(server + url);
@@ -61,7 +106,7 @@ namespace TAKE_Client
             XElement request =
                 new XElement("survey",
                     new XElement("date", date),
-                    new XElement("descritpion", description)
+                    new XElement("description", description)
                     );
             foreach (string question in questions)
                 request.Add(new XElement("questions", new XElement("text", question)));

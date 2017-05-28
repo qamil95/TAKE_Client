@@ -21,5 +21,10 @@ namespace TAKE_Client
         {
             MessageBox.Show(HTTP.GetTeachers());
         }
+
+        private void buttonShowAllSurveys_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(HTTP.GetSurveys());
+        }
     }
 }

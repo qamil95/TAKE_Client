@@ -30,10 +30,11 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabAdmin = new System.Windows.Forms.TabPage();
-            this.buttonShowAllTeachers = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.createNewTeacher1 = new TAKE_Client.CreateTeacher();
             this.createSurvey1 = new TAKE_Client.CreateSurvey();
+            this.buttonShowAllTeachers = new System.Windows.Forms.Button();
+            this.createNewTeacher1 = new TAKE_Client.CreateTeacher();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonShowAllSurveys = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabAdmin.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +52,7 @@
             // 
             // tabAdmin
             // 
+            this.tabAdmin.Controls.Add(this.buttonShowAllSurveys);
             this.tabAdmin.Controls.Add(this.createSurvey1);
             this.tabAdmin.Controls.Add(this.buttonShowAllTeachers);
             this.tabAdmin.Controls.Add(this.createNewTeacher1);
@@ -62,6 +64,13 @@
             this.tabAdmin.Text = "Admin panel";
             this.tabAdmin.UseVisualStyleBackColor = true;
             // 
+            // createSurvey1
+            // 
+            this.createSurvey1.Location = new System.Drawing.Point(190, 36);
+            this.createSurvey1.Name = "createSurvey1";
+            this.createSurvey1.Size = new System.Drawing.Size(216, 257);
+            this.createSurvey1.TabIndex = 6;
+            // 
             // buttonShowAllTeachers
             // 
             this.buttonShowAllTeachers.Location = new System.Drawing.Point(9, 7);
@@ -71,6 +80,13 @@
             this.buttonShowAllTeachers.Text = "Show all teachers";
             this.buttonShowAllTeachers.UseVisualStyleBackColor = true;
             this.buttonShowAllTeachers.Click += new System.EventHandler(this.buttonShowAllTeachers_Click);
+            // 
+            // createNewTeacher1
+            // 
+            this.createNewTeacher1.Location = new System.Drawing.Point(8, 36);
+            this.createNewTeacher1.Name = "createNewTeacher1";
+            this.createNewTeacher1.Size = new System.Drawing.Size(175, 103);
+            this.createNewTeacher1.TabIndex = 4;
             // 
             // tabPage2
             // 
@@ -82,19 +98,15 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // createNewTeacher1
+            // buttonShowAllSurveys
             // 
-            this.createNewTeacher1.Location = new System.Drawing.Point(8, 36);
-            this.createNewTeacher1.Name = "createNewTeacher1";
-            this.createNewTeacher1.Size = new System.Drawing.Size(175, 103);
-            this.createNewTeacher1.TabIndex = 4;
-            // 
-            // createSurvey1
-            // 
-            this.createSurvey1.Location = new System.Drawing.Point(190, 36);
-            this.createSurvey1.Name = "createSurvey1";
-            this.createSurvey1.Size = new System.Drawing.Size(216, 257);
-            this.createSurvey1.TabIndex = 6;
+            this.buttonShowAllSurveys.Location = new System.Drawing.Point(190, 7);
+            this.buttonShowAllSurveys.Name = "buttonShowAllSurveys";
+            this.buttonShowAllSurveys.Size = new System.Drawing.Size(216, 23);
+            this.buttonShowAllSurveys.TabIndex = 7;
+            this.buttonShowAllSurveys.Text = "Show all surveys";
+            this.buttonShowAllSurveys.UseVisualStyleBackColor = true;
+            this.buttonShowAllSurveys.Click += new System.EventHandler(this.buttonShowAllSurveys_Click);
             // 
             // MainWindow
             // 
@@ -118,6 +130,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button buttonShowAllTeachers;
         private CreateSurvey createSurvey1;
+        private System.Windows.Forms.Button buttonShowAllSurveys;
     }
 }
 

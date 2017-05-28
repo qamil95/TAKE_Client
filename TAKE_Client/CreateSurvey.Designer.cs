@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.labelDate = new System.Windows.Forms.Label();
-            this.textBoxDate = new System.Windows.Forms.TextBox();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.labelDescription = new System.Windows.Forms.Label();
-            this.nudNumberOfQuestions = new System.Windows.Forms.NumericUpDown();
-            this.labelNumberOfQuestions = new System.Windows.Forms.Label();
-            this.richTextBoxEditQuestion = new System.Windows.Forms.RichTextBox();
-            this.buttonAcceptNumberOfQuestions = new System.Windows.Forms.Button();
-            this.buttonReset = new System.Windows.Forms.Button();
-            this.buttonCreate = new System.Windows.Forms.Button();
             this.labelEditQuestion = new System.Windows.Forms.Label();
             this.nudEditQuestion = new System.Windows.Forms.NumericUpDown();
+            this.buttonCreate = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonAcceptNumberOfQuestions = new System.Windows.Forms.Button();
+            this.richTextBoxEditQuestion = new System.Windows.Forms.RichTextBox();
+            this.labelNumberOfQuestions = new System.Windows.Forms.Label();
+            this.nudNumberOfQuestions = new System.Windows.Forms.NumericUpDown();
+            this.labelDescription = new System.Windows.Forms.Label();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.textBoxDate = new System.Windows.Forms.TextBox();
+            this.labelDate = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfQuestions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditQuestion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfQuestions)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox
@@ -66,103 +66,6 @@
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Create survey";
-            // 
-            // labelDate
-            // 
-            this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(6, 25);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(30, 13);
-            this.labelDate.TabIndex = 0;
-            this.labelDate.Text = "Date";
-            // 
-            // textBoxDate
-            // 
-            this.textBoxDate.Location = new System.Drawing.Point(71, 22);
-            this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(126, 20);
-            this.textBoxDate.TabIndex = 1;
-            // 
-            // textBoxDescription
-            // 
-            this.textBoxDescription.Location = new System.Drawing.Point(71, 48);
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(126, 20);
-            this.textBoxDescription.TabIndex = 2;
-            // 
-            // labelDescription
-            // 
-            this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(6, 51);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(60, 13);
-            this.labelDescription.TabIndex = 3;
-            this.labelDescription.Text = "Description";
-            // 
-            // nudNumberOfQuestions
-            // 
-            this.nudNumberOfQuestions.Location = new System.Drawing.Point(116, 74);
-            this.nudNumberOfQuestions.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudNumberOfQuestions.Name = "nudNumberOfQuestions";
-            this.nudNumberOfQuestions.Size = new System.Drawing.Size(43, 20);
-            this.nudNumberOfQuestions.TabIndex = 4;
-            this.nudNumberOfQuestions.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // labelNumberOfQuestions
-            // 
-            this.labelNumberOfQuestions.AutoSize = true;
-            this.labelNumberOfQuestions.Location = new System.Drawing.Point(6, 76);
-            this.labelNumberOfQuestions.Name = "labelNumberOfQuestions";
-            this.labelNumberOfQuestions.Size = new System.Drawing.Size(104, 13);
-            this.labelNumberOfQuestions.TabIndex = 5;
-            this.labelNumberOfQuestions.Text = "Number of questions";
-            // 
-            // richTextBoxEditQuestion
-            // 
-            this.richTextBoxEditQuestion.Enabled = false;
-            this.richTextBoxEditQuestion.Location = new System.Drawing.Point(9, 126);
-            this.richTextBoxEditQuestion.Name = "richTextBoxEditQuestion";
-            this.richTextBoxEditQuestion.Size = new System.Drawing.Size(187, 81);
-            this.richTextBoxEditQuestion.TabIndex = 10;
-            this.richTextBoxEditQuestion.Text = "";
-            // 
-            // buttonAcceptNumberOfQuestions
-            // 
-            this.buttonAcceptNumberOfQuestions.Location = new System.Drawing.Point(165, 74);
-            this.buttonAcceptNumberOfQuestions.Name = "buttonAcceptNumberOfQuestions";
-            this.buttonAcceptNumberOfQuestions.Size = new System.Drawing.Size(31, 20);
-            this.buttonAcceptNumberOfQuestions.TabIndex = 13;
-            this.buttonAcceptNumberOfQuestions.Text = "OK";
-            this.buttonAcceptNumberOfQuestions.UseVisualStyleBackColor = true;
-            this.buttonAcceptNumberOfQuestions.Click += new System.EventHandler(this.buttonAcceptNumberOfQuestions_Click);
-            // 
-            // buttonReset
-            // 
-            this.buttonReset.Location = new System.Drawing.Point(122, 213);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(75, 23);
-            this.buttonReset.TabIndex = 14;
-            this.buttonReset.Text = "Reset";
-            this.buttonReset.UseVisualStyleBackColor = true;
-            // 
-            // buttonCreate
-            // 
-            this.buttonCreate.Enabled = false;
-            this.buttonCreate.Location = new System.Drawing.Point(9, 213);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
-            this.buttonCreate.TabIndex = 15;
-            this.buttonCreate.Text = "Create";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // labelEditQuestion
             // 
@@ -190,6 +93,106 @@
             0,
             0,
             0});
+            this.nudEditQuestion.ValueChanged += new System.EventHandler(this.nudEditQuestion_ValueChanged);
+            // 
+            // buttonCreate
+            // 
+            this.buttonCreate.Enabled = false;
+            this.buttonCreate.Location = new System.Drawing.Point(9, 213);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreate.TabIndex = 15;
+            this.buttonCreate.Text = "Create";
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(122, 213);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.TabIndex = 14;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // buttonAcceptNumberOfQuestions
+            // 
+            this.buttonAcceptNumberOfQuestions.Location = new System.Drawing.Point(165, 74);
+            this.buttonAcceptNumberOfQuestions.Name = "buttonAcceptNumberOfQuestions";
+            this.buttonAcceptNumberOfQuestions.Size = new System.Drawing.Size(31, 20);
+            this.buttonAcceptNumberOfQuestions.TabIndex = 13;
+            this.buttonAcceptNumberOfQuestions.Text = "OK";
+            this.buttonAcceptNumberOfQuestions.UseVisualStyleBackColor = true;
+            this.buttonAcceptNumberOfQuestions.Click += new System.EventHandler(this.buttonAcceptNumberOfQuestions_Click);
+            // 
+            // richTextBoxEditQuestion
+            // 
+            this.richTextBoxEditQuestion.Enabled = false;
+            this.richTextBoxEditQuestion.Location = new System.Drawing.Point(9, 126);
+            this.richTextBoxEditQuestion.Name = "richTextBoxEditQuestion";
+            this.richTextBoxEditQuestion.Size = new System.Drawing.Size(187, 81);
+            this.richTextBoxEditQuestion.TabIndex = 10;
+            this.richTextBoxEditQuestion.Text = "";
+            this.richTextBoxEditQuestion.TextChanged += new System.EventHandler(this.richTextBoxEditQuestion_TextChanged);
+            // 
+            // labelNumberOfQuestions
+            // 
+            this.labelNumberOfQuestions.AutoSize = true;
+            this.labelNumberOfQuestions.Location = new System.Drawing.Point(6, 76);
+            this.labelNumberOfQuestions.Name = "labelNumberOfQuestions";
+            this.labelNumberOfQuestions.Size = new System.Drawing.Size(104, 13);
+            this.labelNumberOfQuestions.TabIndex = 5;
+            this.labelNumberOfQuestions.Text = "Number of questions";
+            // 
+            // nudNumberOfQuestions
+            // 
+            this.nudNumberOfQuestions.Location = new System.Drawing.Point(116, 74);
+            this.nudNumberOfQuestions.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNumberOfQuestions.Name = "nudNumberOfQuestions";
+            this.nudNumberOfQuestions.Size = new System.Drawing.Size(43, 20);
+            this.nudNumberOfQuestions.TabIndex = 4;
+            this.nudNumberOfQuestions.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(6, 51);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(60, 13);
+            this.labelDescription.TabIndex = 3;
+            this.labelDescription.Text = "Description";
+            // 
+            // textBoxDescription
+            // 
+            this.textBoxDescription.Location = new System.Drawing.Point(71, 48);
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(126, 20);
+            this.textBoxDescription.TabIndex = 2;
+            // 
+            // textBoxDate
+            // 
+            this.textBoxDate.Location = new System.Drawing.Point(71, 22);
+            this.textBoxDate.Name = "textBoxDate";
+            this.textBoxDate.Size = new System.Drawing.Size(126, 20);
+            this.textBoxDate.TabIndex = 1;
+            // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.Location = new System.Drawing.Point(6, 25);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(30, 13);
+            this.labelDate.TabIndex = 0;
+            this.labelDate.Text = "Date";
             // 
             // CreateSurvey
             // 
@@ -200,8 +203,8 @@
             this.Size = new System.Drawing.Size(216, 257);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfQuestions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEditQuestion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumberOfQuestions)).EndInit();
             this.ResumeLayout(false);
 
         }
