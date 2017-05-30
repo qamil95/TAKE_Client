@@ -34,46 +34,8 @@ namespace TAKE_Client
 
         public static string GetSurveys()
         {
-            StringBuilder output = new StringBuilder();
-
-            String xmlString = DoGet("survey");
-            // Create an XmlReader
-            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
-            {
-                XmlWriterSettings ws = new XmlWriterSettings();
-                ws.Indent = true;
-                ws.OmitXmlDeclaration = true;
-                using (XmlWriter writer = XmlWriter.Create(output, ws))
-                {
-
-                    // Parse the file and display each of the nodes.
-                    while (reader.Read())
-                    {
-                        switch (reader.NodeType)
-                        {
-                            case XmlNodeType.Element:
-                                //writer.WriteStartElement(reader.Name);      
-                                writer.WriteStartElement(reader.Name + reader.GetAttribute("idq")+ reader.GetAttribute("ids"));
-                                break;
-                            case XmlNodeType.Text:
-                                writer.WriteString(reader.Value);
-                                break;
-                            case XmlNodeType.XmlDeclaration:
-                            case XmlNodeType.ProcessingInstruction:
-                                writer.WriteProcessingInstruction(reader.Name, reader.Value);
-                                break;
-                            case XmlNodeType.Comment:
-                                writer.WriteComment(reader.Value);
-                                break;
-                            case XmlNodeType.EndElement:
-                                writer.WriteFullEndElement();
-                                break;
-                        }
-                    }
-
-                }
-            }
-            return output.ToString();
+            return DoGet("survey");
+            
         }
     
 
@@ -115,46 +77,7 @@ namespace TAKE_Client
 
         public static string GetTeachers()
         {
-            StringBuilder output = new StringBuilder();
-
-            String xmlString = DoGet("teacher");
-            // Create an XmlReader
-            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
-            {
-                XmlWriterSettings ws = new XmlWriterSettings();
-                ws.Indent = true;
-                ws.OmitXmlDeclaration = true;
-                using (XmlWriter writer = XmlWriter.Create(output, ws))
-                {
-
-                    // Parse the file and display each of the nodes.
-                    while (reader.Read())
-                    {
-                        switch (reader.NodeType)
-                        {
-                            case XmlNodeType.Element:
-                                //writer.WriteStartElement(reader.Name);      
-                                writer.WriteStartElement(reader.Name + reader.GetAttribute("idt"));
-                                break;
-                            case XmlNodeType.Text:
-                                writer.WriteString(reader.Value);
-                                break;
-                            case XmlNodeType.XmlDeclaration:
-                            case XmlNodeType.ProcessingInstruction:
-                                writer.WriteProcessingInstruction(reader.Name, reader.Value);
-                                break;
-                            case XmlNodeType.Comment:
-                                writer.WriteComment(reader.Value);
-                                break;
-                            case XmlNodeType.EndElement:
-                                writer.WriteFullEndElement();
-                                break;
-                        }
-                    }
-
-                }
-            }
-            return output.ToString();
+            return DoGet("teacher");          
         }
     }
 }

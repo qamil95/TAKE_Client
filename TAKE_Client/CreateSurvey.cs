@@ -59,6 +59,7 @@ namespace TAKE_Client
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
+            nudEditQuestion.Value = 1;
             richTextBoxEditQuestion.Enabled = false;
             richTextBoxEditQuestion.Text = string.Empty;
             textBoxDate.Text = string.Empty;
