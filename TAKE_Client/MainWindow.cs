@@ -35,7 +35,7 @@ namespace TAKE_Client
             theDataSet.ReadXml(theReader);
             if (theDataSet.Tables.Count == 0)
             {
-                MessageBox.Show("No teachers!");
+                dataGridTeachers.DataSource = null;
             }
             else
             {
@@ -57,6 +57,30 @@ namespace TAKE_Client
                 dataGridQuestions.DataSource = theDataSet.Tables[0];
                 dataGridQuestions.DataMember = theDataSet.Tables[0].ChildRelations[0].RelationName;
             }            
+        }
+        private void tabAdminTeachers_Enter(object sender, EventArgs e)
+        {
+            refreshTeachers();
+        }
+
+        private void buttonDeleteTeacher_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = dataGridTeachers.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridTeachers.Rows[selectedrowindex];
+            int num = int.Parse((string)selectedRow.Cells["idt"].Value);
+            MessageBox.Show(HTTP.DeleteTeacher(num));
+            refreshTeachers();
+        }
+
+        private void buttonEditTeacher_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = dataGridTeachers.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridTeachers.Rows[selectedrowindex];
+            int num = int.Parse((string)selectedRow.Cells["idt"].Value);
+            string name = (string)selectedRow.Cells["firstName"].Value;
+            string surname = (string)selectedRow.Cells["lastName"].Value;
+            MessageBox.Show(HTTP.EditTeacher(name, surname, num));
+            refreshTeachers();
         }
     }    
 }

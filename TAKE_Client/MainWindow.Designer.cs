@@ -30,6 +30,8 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabAdminTeachers = new System.Windows.Forms.TabPage();
+            this.buttonDeleteTeacher = new System.Windows.Forms.Button();
+            this.buttonEditTeacher = new System.Windows.Forms.Button();
             this.dataGridTeachers = new System.Windows.Forms.DataGridView();
             this.buttonShowAllTeachers = new System.Windows.Forms.Button();
             this.createNewTeacher1 = new TAKE_Client.CreateTeacher();
@@ -59,6 +61,8 @@
             // 
             // tabAdminTeachers
             // 
+            this.tabAdminTeachers.Controls.Add(this.buttonDeleteTeacher);
+            this.tabAdminTeachers.Controls.Add(this.buttonEditTeacher);
             this.tabAdminTeachers.Controls.Add(this.dataGridTeachers);
             this.tabAdminTeachers.Controls.Add(this.buttonShowAllTeachers);
             this.tabAdminTeachers.Controls.Add(this.createNewTeacher1);
@@ -69,6 +73,27 @@
             this.tabAdminTeachers.TabIndex = 0;
             this.tabAdminTeachers.Text = "[ADMIN]Teachers";
             this.tabAdminTeachers.UseVisualStyleBackColor = true;
+            this.tabAdminTeachers.Enter += new System.EventHandler(this.tabAdminTeachers_Enter);
+            // 
+            // buttonDeleteTeacher
+            // 
+            this.buttonDeleteTeacher.Location = new System.Drawing.Point(673, 172);
+            this.buttonDeleteTeacher.Name = "buttonDeleteTeacher";
+            this.buttonDeleteTeacher.Size = new System.Drawing.Size(95, 23);
+            this.buttonDeleteTeacher.TabIndex = 10;
+            this.buttonDeleteTeacher.Text = "Delete teacher";
+            this.buttonDeleteTeacher.UseVisualStyleBackColor = true;
+            this.buttonDeleteTeacher.Click += new System.EventHandler(this.buttonDeleteTeacher_Click);
+            // 
+            // buttonEditTeacher
+            // 
+            this.buttonEditTeacher.Location = new System.Drawing.Point(592, 172);
+            this.buttonEditTeacher.Name = "buttonEditTeacher";
+            this.buttonEditTeacher.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditTeacher.TabIndex = 9;
+            this.buttonEditTeacher.Text = "Edit teacher";
+            this.buttonEditTeacher.UseVisualStyleBackColor = true;
+            this.buttonEditTeacher.Click += new System.EventHandler(this.buttonEditTeacher_Click);
             // 
             // dataGridTeachers
             // 
@@ -77,7 +102,7 @@
             this.dataGridTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridTeachers.Location = new System.Drawing.Point(189, 6);
             this.dataGridTeachers.Name = "dataGridTeachers";
-            this.dataGridTeachers.ReadOnly = true;
+            this.dataGridTeachers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridTeachers.Size = new System.Drawing.Size(579, 159);
             this.dataGridTeachers.TabIndex = 8;
             // 
@@ -85,7 +110,7 @@
             // 
             this.buttonShowAllTeachers.Location = new System.Drawing.Point(9, 115);
             this.buttonShowAllTeachers.Name = "buttonShowAllTeachers";
-            this.buttonShowAllTeachers.Size = new System.Drawing.Size(174, 23);
+            this.buttonShowAllTeachers.Size = new System.Drawing.Size(174, 50);
             this.buttonShowAllTeachers.TabIndex = 5;
             this.buttonShowAllTeachers.Text = "Refresh teachers";
             this.buttonShowAllTeachers.UseVisualStyleBackColor = true;
@@ -120,6 +145,7 @@
             this.dataGridQuestions.Location = new System.Drawing.Point(8, 299);
             this.dataGridQuestions.Name = "dataGridQuestions";
             this.dataGridQuestions.ReadOnly = true;
+            this.dataGridQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridQuestions.Size = new System.Drawing.Size(758, 229);
             this.dataGridQuestions.TabIndex = 12;
             // 
@@ -141,6 +167,7 @@
             this.dataGridSurveys.Location = new System.Drawing.Point(230, 6);
             this.dataGridSurveys.Name = "dataGridSurveys";
             this.dataGridSurveys.ReadOnly = true;
+            this.dataGridSurveys.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridSurveys.Size = new System.Drawing.Size(536, 285);
             this.dataGridSurveys.TabIndex = 10;
             // 
@@ -181,6 +208,8 @@
         private System.Windows.Forms.DataGridView dataGridSurveys;
         private CreateSurvey createSurvey1;
         private System.Windows.Forms.DataGridView dataGridQuestions;
+        private System.Windows.Forms.Button buttonDeleteTeacher;
+        private System.Windows.Forms.Button buttonEditTeacher;
     }
 }
 

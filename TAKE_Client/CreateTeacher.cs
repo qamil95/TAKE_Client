@@ -15,6 +15,8 @@ namespace TAKE_Client
             if ((textBoxName.Text != String.Empty) && (textBoxSurname.Text !=String.Empty))
             {
                 MessageBox.Show(HTTP.NewTeacher(textBoxName.Text, textBoxSurname.Text));
+                textBoxName.Text = string.Empty;
+                textBoxSurname.Text = string.Empty;
             }
             else
             {
