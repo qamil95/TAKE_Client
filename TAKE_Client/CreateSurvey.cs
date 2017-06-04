@@ -44,6 +44,7 @@ namespace TAKE_Client
             if (!error)
             {
                 MessageBox.Show(HTTP.NewSurvey(textBoxDate.Text, textBoxDescription.Text, questions));
+                resetForm();
             }            
         }
 
@@ -59,6 +60,10 @@ namespace TAKE_Client
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
+            resetForm();
+        }
+        private void resetForm()
+        {
             nudEditQuestion.Value = 1;
             richTextBoxEditQuestion.Enabled = false;
             richTextBoxEditQuestion.Text = string.Empty;
@@ -69,7 +74,7 @@ namespace TAKE_Client
             nudNumberOfQuestions.Value = 1;
             buttonAcceptNumberOfQuestions.Enabled = true;
             nudEditQuestion.Enabled = false;
-            nudEditQuestion.Value = 1;            
+            nudEditQuestion.Value = 1;
             buttonCreate.Enabled = false;
         }
     }

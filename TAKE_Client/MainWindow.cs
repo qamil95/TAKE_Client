@@ -20,7 +20,7 @@ namespace TAKE_Client
 
         private void buttonShowAllTeachers_Click(object sender, EventArgs e)
         {
-            refreshTeachers();
+            dataGridTeachersAdminPanel.DataSource = teachersDataTable();
         }
 
         private void buttonShowAllSurveys_Click(object sender, EventArgs e)
@@ -28,18 +28,18 @@ namespace TAKE_Client
             refreshSurveys();
         }
 
-        private void refreshTeachers()
+        private DataTable teachersDataTable()
         {
             StringReader theReader = new StringReader(HTTP.GetTeachers());
             DataSet theDataSet = new DataSet();
             theDataSet.ReadXml(theReader);
             if (theDataSet.Tables.Count == 0)
             {
-                dataGridTeachers.DataSource = null;
+                return null;
             }
             else
             {
-                dataGridTeachers.DataSource = theDataSet.Tables[0];
+                return theDataSet.Tables[0];
             }            
         }
         private void refreshSurveys()
@@ -55,32 +55,37 @@ namespace TAKE_Client
             {
                 dataGridSurveys.DataSource = theDataSet.Tables[0];
                 dataGridQuestions.DataSource = theDataSet.Tables[0];
-                dataGridQuestions.DataMember = theDataSet.Tables[0].ChildRelations[0].RelationName;
+                dataGridQuestions.DataMember = "set_questions";
             }            
         }
         private void tabAdminTeachers_Enter(object sender, EventArgs e)
         {
-            refreshTeachers();
+            dataGridTeachersAdminPanel.DataSource = teachersDataTable();
         }
 
         private void buttonDeleteTeacher_Click(object sender, EventArgs e)
         {
-            int selectedrowindex = dataGridTeachers.SelectedCells[0].RowIndex;
-            DataGridViewRow selectedRow = dataGridTeachers.Rows[selectedrowindex];
+            int selectedrowindex = dataGridTeachersAdminPanel.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridTeachersAdminPanel.Rows[selectedrowindex];
             int num = int.Parse((string)selectedRow.Cells["idt"].Value);
             MessageBox.Show(HTTP.DeleteTeacher(num));
-            refreshTeachers();
+            dataGridTeachersAdminPanel.DataSource = teachersDataTable();
         }
 
         private void buttonEditTeacher_Click(object sender, EventArgs e)
         {
-            int selectedrowindex = dataGridTeachers.SelectedCells[0].RowIndex;
-            DataGridViewRow selectedRow = dataGridTeachers.Rows[selectedrowindex];
+            int selectedrowindex = dataGridTeachersAdminPanel.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridTeachersAdminPanel.Rows[selectedrowindex];
             int num = int.Parse((string)selectedRow.Cells["idt"].Value);
             string name = (string)selectedRow.Cells["firstName"].Value;
             string surname = (string)selectedRow.Cells["lastName"].Value;
             MessageBox.Show(HTTP.EditTeacher(name, surname, num));
-            refreshTeachers();
+            dataGridTeachersAdminPanel.DataSource = teachersDataTable();
+        }
+
+        private void tabTeacher_Enter(object sender, EventArgs e)
+        {
+            dataGridTeachersTeacherPanel.DataSource = teachersDataTable();
         }
     }    
 }
