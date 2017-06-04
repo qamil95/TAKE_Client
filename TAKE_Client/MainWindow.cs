@@ -87,5 +87,18 @@ namespace TAKE_Client
         {
             dataGridTeachersTeacherPanel.DataSource = teachersDataTable();
         }
+
+        private void dataGridTeachersTeacherPanel_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = dataGridTeachersTeacherPanel.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridTeachersTeacherPanel.Rows[selectedrowindex];
+            int num = int.Parse((string)selectedRow.Cells["idt"].Value);
+            StringReader theReader = new StringReader(HTTP.GetTeacher(num));
+            DataSet theDataSet = new DataSet();
+            theDataSet.ReadXml(theReader);
+            dataGridFilledSurveysTeacherPanel.DataSource = theDataSet.Tables["filledSurveys"];
+            dataGridSurveyDetailsTeacherPanel.DataSource = theDataSet.Tables["filledSurveys"];
+            dataGridSurveyDetailsTeacherPanel.DataMember = "filledSurveys_answers";
+        }
     }    
 }
