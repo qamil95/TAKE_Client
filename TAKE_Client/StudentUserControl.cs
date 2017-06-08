@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.IO;
 
 namespace TAKE_Client
 {
@@ -19,14 +20,43 @@ namespace TAKE_Client
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void comboBoxSurveys_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBoxTeachers.SelectedIndex.ToString()+ " ma idt " + dictionaryTeachers[comboBoxTeachers.SelectedIndex]);
+            StringReader theReader = new StringReader(HTTP.GetSurvey(dictionarySurveys[comboBoxSurveys.SelectedIndex]));
+            DataSet theDataSet = new DataSet();
+            theDataSet.ReadXml(theReader);
+            if (theDataSet.Tables.Count != 0)
+            {
+                dataGridViewSurvey.DataSource = theDataSet.Tables["questions"];
+                dataGridViewSurvey.Columns["idq"].Visible = false;
+                dataGridViewSurvey.Columns["text"].HeaderText = "Question";
+                dataGridViewSurvey.Columns["text"].ReadOnly = true;
+            }
+            
         }
 
-        private void comboBoxSurveys_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            MessageBox.Show(HTTP.GetSurvey(dictionarySurveys[comboBoxSurveys.SelectedIndex]));
+        private void buttonSendSurvey_Click(object sender, EventArgs e)
+        {
+            Dictionary<int, string> answers = new Dictionary<int, string>();
+            foreach (DataGridViewRow row in dataGridViewSurvey.Rows)
+            {
+                if ((string)row.Cells["text"].Value != String.Empty)
+                {
+                    answers.Add(int.Parse((string)row.Cells["idq"].Value), (string)row.Cells["text"].Value);
+                }                
+            }
+            if (comboBoxTeachers.SelectedIndex >= 0)
+            {
+                MessageBox.Show(HTTP.NewFilledSurvey(dictionarySurveys[comboBoxSurveys.SelectedIndex],
+                dictionaryTeachers[comboBoxTeachers.SelectedIndex],
+                textBoxDate.Text,
+                textBoxAdditionalInformation.Text,
+                answers));
+            }
+            else
+            {
+                MessageBox.Show("Choose teacher!");
+            }            
         }
 
         internal void Initialize()
@@ -58,6 +88,7 @@ namespace TAKE_Client
                 int num = comboBoxSurveys.Items.Add(survey.Element("date").Value + " - " + survey.Element("description").Value);
                 dictionarySurveys.Add(num, int.Parse(survey.Attribute("ids").Value));
             }
+            dataGridViewSurvey.Columns.Add("answers", "Answer");
         }
     }
 }

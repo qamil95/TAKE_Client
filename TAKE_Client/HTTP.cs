@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -98,6 +99,25 @@ namespace TAKE_Client
             foreach (string question in questions)
                 request.Add(new XElement("questions", new XElement("text", question)));
             return DoPost("survey", request);
+        }
+
+        public static string NewFilledSurvey(int ids, int idt, string date, string description, Dictionary<int, string> answers)
+        {
+            XElement request =
+                new XElement("filledCreator",
+                    new XElement("ids", ids),
+                    new XElement("idt", idt),
+                    new XElement("filled",
+                        new XElement("date", date),
+                        new XElement("descrpition", description)
+                        )
+                    );
+            foreach (var answer in answers)
+            {
+                XElement toAdd = new XElement("answers", new XElement("text", answer.Value), new XElement("idq", answer.Key));
+                request.Element("filled").Add(toAdd);         
+            }
+            return DoPost("filledsurvey", request);
         }
 
         public static string GetTeachers()

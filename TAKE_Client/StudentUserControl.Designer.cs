@@ -32,7 +32,13 @@
             this.labelTeacher = new System.Windows.Forms.Label();
             this.labelSurvey = new System.Windows.Forms.Label();
             this.comboBoxSurveys = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridViewSurvey = new System.Windows.Forms.DataGridView();
+            this.buttonSendSurvey = new System.Windows.Forms.Button();
+            this.labelDate = new System.Windows.Forms.Label();
+            this.labelAdditionalInformation = new System.Windows.Forms.Label();
+            this.textBoxDate = new System.Windows.Forms.TextBox();
+            this.textBoxAdditionalInformation = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSurvey)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxTeachers
@@ -74,27 +80,75 @@
             this.comboBoxSurveys.TabIndex = 3;
             this.comboBoxSurveys.SelectedIndexChanged += new System.EventHandler(this.comboBoxSurveys_SelectedIndexChanged);
             // 
-            // button1
+            // dataGridViewSurvey
             // 
-            this.button1.Location = new System.Drawing.Point(211, 162);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dataGridViewSurvey.AllowUserToAddRows = false;
+            this.dataGridViewSurvey.AllowUserToDeleteRows = false;
+            this.dataGridViewSurvey.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSurvey.Location = new System.Drawing.Point(7, 91);
+            this.dataGridViewSurvey.Name = "dataGridViewSurvey";
+            this.dataGridViewSurvey.Size = new System.Drawing.Size(757, 385);
+            this.dataGridViewSurvey.TabIndex = 4;
+            // 
+            // buttonSendSurvey
+            // 
+            this.buttonSendSurvey.Location = new System.Drawing.Point(7, 482);
+            this.buttonSendSurvey.Name = "buttonSendSurvey";
+            this.buttonSendSurvey.Size = new System.Drawing.Size(757, 39);
+            this.buttonSendSurvey.TabIndex = 5;
+            this.buttonSendSurvey.Text = "Send Survey";
+            this.buttonSendSurvey.UseVisualStyleBackColor = true;
+            this.buttonSendSurvey.Click += new System.EventHandler(this.buttonSendSurvey_Click);
+            // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.Location = new System.Drawing.Point(7, 48);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(33, 13);
+            this.labelDate.TabIndex = 6;
+            this.labelDate.Text = "Date:";
+            // 
+            // labelAdditionalInformation
+            // 
+            this.labelAdditionalInformation.AutoSize = true;
+            this.labelAdditionalInformation.Location = new System.Drawing.Point(394, 48);
+            this.labelAdditionalInformation.Name = "labelAdditionalInformation";
+            this.labelAdditionalInformation.Size = new System.Drawing.Size(110, 13);
+            this.labelAdditionalInformation.TabIndex = 7;
+            this.labelAdditionalInformation.Text = "Additional information:";
+            // 
+            // textBoxDate
+            // 
+            this.textBoxDate.Location = new System.Drawing.Point(10, 65);
+            this.textBoxDate.Name = "textBoxDate";
+            this.textBoxDate.Size = new System.Drawing.Size(360, 20);
+            this.textBoxDate.TabIndex = 8;
+            // 
+            // textBoxAdditionalInformation
+            // 
+            this.textBoxAdditionalInformation.Location = new System.Drawing.Point(397, 65);
+            this.textBoxAdditionalInformation.Name = "textBoxAdditionalInformation";
+            this.textBoxAdditionalInformation.Size = new System.Drawing.Size(367, 20);
+            this.textBoxAdditionalInformation.TabIndex = 9;
             // 
             // StudentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBoxAdditionalInformation);
+            this.Controls.Add(this.textBoxDate);
+            this.Controls.Add(this.labelAdditionalInformation);
+            this.Controls.Add(this.labelDate);
+            this.Controls.Add(this.buttonSendSurvey);
+            this.Controls.Add(this.dataGridViewSurvey);
             this.Controls.Add(this.comboBoxSurveys);
             this.Controls.Add(this.labelSurvey);
             this.Controls.Add(this.labelTeacher);
             this.Controls.Add(this.comboBoxTeachers);
             this.Name = "StudentUserControl";
             this.Size = new System.Drawing.Size(776, 536);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSurvey)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,6 +160,11 @@
         private System.Windows.Forms.Label labelTeacher;
         private System.Windows.Forms.Label labelSurvey;
         private System.Windows.Forms.ComboBox comboBoxSurveys;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridViewSurvey;
+        private System.Windows.Forms.Button buttonSendSurvey;
+        private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.Label labelAdditionalInformation;
+        private System.Windows.Forms.TextBox textBoxDate;
+        private System.Windows.Forms.TextBox textBoxAdditionalInformation;
     }
 }
