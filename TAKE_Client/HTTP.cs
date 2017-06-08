@@ -113,6 +113,10 @@ namespace TAKE_Client
         {
             return DoGet("teacher/" + i.ToString());
         }
+        public static string GetSurvey(int i)
+        {
+            return DoGet("survey/" + i.ToString());
+        }
 
         public static string DeleteTeacher(int id)
         {

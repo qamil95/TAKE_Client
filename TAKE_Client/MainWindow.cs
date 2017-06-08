@@ -39,6 +39,7 @@ namespace TAKE_Client
             }
             else
             {
+                theDataSet.Tables[0].DefaultView.Sort = "[lastName] asc";
                 return theDataSet.Tables[0];
             }            
         }
@@ -99,6 +100,16 @@ namespace TAKE_Client
             dataGridFilledSurveysTeacherPanel.DataSource = theDataSet.Tables["filledSurveys"];
             dataGridSurveyDetailsTeacherPanel.DataSource = theDataSet.Tables["filledSurveys"];
             dataGridSurveyDetailsTeacherPanel.DataMember = "filledSurveys_answers";
+        }
+
+        private void tabAdminSurveys_Enter(object sender, EventArgs e)
+        {
+            refreshSurveys();
+        }
+
+        private void tabStudent_Enter(object sender, EventArgs e)
+        {
+            studentUserControl.Initialize();
         }
     }    
 }

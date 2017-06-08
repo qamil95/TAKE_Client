@@ -34,10 +34,12 @@
             this.buttonEditTeacher = new System.Windows.Forms.Button();
             this.dataGridTeachersAdminPanel = new System.Windows.Forms.DataGridView();
             this.buttonShowAllTeachers = new System.Windows.Forms.Button();
+            this.createNewTeacher1 = new TAKE_Client.CreateTeacher();
             this.tabAdminSurveys = new System.Windows.Forms.TabPage();
             this.dataGridQuestions = new System.Windows.Forms.DataGridView();
             this.buttonShowAllSurveys = new System.Windows.Forms.Button();
             this.dataGridSurveys = new System.Windows.Forms.DataGridView();
+            this.createSurvey1 = new TAKE_Client.CreateSurvey();
             this.tabTeacher = new System.Windows.Forms.TabPage();
             this.dataGridSurveyDetailsTeacherPanel = new System.Windows.Forms.DataGridView();
             this.labelSurveyDetails = new System.Windows.Forms.Label();
@@ -45,8 +47,8 @@
             this.dataGridFilledSurveysTeacherPanel = new System.Windows.Forms.DataGridView();
             this.labelTeacherName = new System.Windows.Forms.Label();
             this.dataGridTeachersTeacherPanel = new System.Windows.Forms.DataGridView();
-            this.createNewTeacher1 = new TAKE_Client.CreateTeacher();
-            this.createSurvey1 = new TAKE_Client.CreateSurvey();
+            this.tabStudent = new System.Windows.Forms.TabPage();
+            this.studentUserControl = new TAKE_Client.StudentUserControl();
             this.tabControl.SuspendLayout();
             this.tabAdminTeachers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTeachersAdminPanel)).BeginInit();
@@ -57,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSurveyDetailsTeacherPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFilledSurveysTeacherPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTeachersTeacherPanel)).BeginInit();
+            this.tabStudent.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -64,6 +67,7 @@
             this.tabControl.Controls.Add(this.tabAdminTeachers);
             this.tabControl.Controls.Add(this.tabAdminSurveys);
             this.tabControl.Controls.Add(this.tabTeacher);
+            this.tabControl.Controls.Add(this.tabStudent);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
@@ -128,6 +132,13 @@
             this.buttonShowAllTeachers.UseVisualStyleBackColor = true;
             this.buttonShowAllTeachers.Click += new System.EventHandler(this.buttonShowAllTeachers_Click);
             // 
+            // createNewTeacher1
+            // 
+            this.createNewTeacher1.Location = new System.Drawing.Point(8, 6);
+            this.createNewTeacher1.Name = "createNewTeacher1";
+            this.createNewTeacher1.Size = new System.Drawing.Size(175, 103);
+            this.createNewTeacher1.TabIndex = 4;
+            // 
             // tabAdminSurveys
             // 
             this.tabAdminSurveys.Controls.Add(this.dataGridQuestions);
@@ -141,6 +152,7 @@
             this.tabAdminSurveys.TabIndex = 1;
             this.tabAdminSurveys.Text = "[ADMIN]Surveys";
             this.tabAdminSurveys.UseVisualStyleBackColor = true;
+            this.tabAdminSurveys.Enter += new System.EventHandler(this.tabAdminSurveys_Enter);
             // 
             // dataGridQuestions
             // 
@@ -175,6 +187,13 @@
             this.dataGridSurveys.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridSurveys.Size = new System.Drawing.Size(536, 285);
             this.dataGridSurveys.TabIndex = 10;
+            // 
+            // createSurvey1
+            // 
+            this.createSurvey1.Location = new System.Drawing.Point(8, 6);
+            this.createSurvey1.Name = "createSurvey1";
+            this.createSurvey1.Size = new System.Drawing.Size(216, 257);
+            this.createSurvey1.TabIndex = 7;
             // 
             // tabTeacher
             // 
@@ -257,19 +276,25 @@
             this.dataGridTeachersTeacherPanel.TabIndex = 9;
             this.dataGridTeachersTeacherPanel.Click += new System.EventHandler(this.dataGridTeachersTeacherPanel_Click);
             // 
-            // createNewTeacher1
+            // tabStudent
             // 
-            this.createNewTeacher1.Location = new System.Drawing.Point(8, 6);
-            this.createNewTeacher1.Name = "createNewTeacher1";
-            this.createNewTeacher1.Size = new System.Drawing.Size(175, 103);
-            this.createNewTeacher1.TabIndex = 4;
+            this.tabStudent.Controls.Add(this.studentUserControl);
+            this.tabStudent.Location = new System.Drawing.Point(4, 22);
+            this.tabStudent.Name = "tabStudent";
+            this.tabStudent.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStudent.Size = new System.Drawing.Size(776, 536);
+            this.tabStudent.TabIndex = 3;
+            this.tabStudent.Text = "[STUDENT]";
+            this.tabStudent.UseVisualStyleBackColor = true;
+            this.tabStudent.Enter += new System.EventHandler(this.tabStudent_Enter);
             // 
-            // createSurvey1
+            // studentUserControl
             // 
-            this.createSurvey1.Location = new System.Drawing.Point(8, 6);
-            this.createSurvey1.Name = "createSurvey1";
-            this.createSurvey1.Size = new System.Drawing.Size(216, 257);
-            this.createSurvey1.TabIndex = 7;
+            this.studentUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentUserControl.Location = new System.Drawing.Point(3, 3);
+            this.studentUserControl.Name = "studentUserControl";
+            this.studentUserControl.Size = new System.Drawing.Size(770, 530);
+            this.studentUserControl.TabIndex = 0;
             // 
             // MainWindow
             // 
@@ -290,6 +315,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSurveyDetailsTeacherPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFilledSurveysTeacherPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTeachersTeacherPanel)).EndInit();
+            this.tabStudent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -315,6 +341,8 @@
         private System.Windows.Forms.Label labelFilledSurveys;
         private System.Windows.Forms.DataGridView dataGridFilledSurveysTeacherPanel;
         private System.Windows.Forms.Label labelTeacherName;
+        private System.Windows.Forms.TabPage tabStudent;
+        private StudentUserControl studentUserControl;
     }
 }
 
