@@ -92,6 +92,7 @@
             // 
             // buttonSendSurvey
             // 
+            this.buttonSendSurvey.Enabled = false;
             this.buttonSendSurvey.Location = new System.Drawing.Point(7, 482);
             this.buttonSendSurvey.Name = "buttonSendSurvey";
             this.buttonSendSurvey.Size = new System.Drawing.Size(757, 39);

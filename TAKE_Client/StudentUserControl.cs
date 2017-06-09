@@ -18,6 +18,7 @@ namespace TAKE_Client
         public StudentUserControl()
         {
             InitializeComponent();
+            dataGridViewSurvey.Columns.Add("answers", "Answer");
         }
 
         private void comboBoxSurveys_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace TAKE_Client
                 dataGridViewSurvey.Columns["idq"].Visible = false;
                 dataGridViewSurvey.Columns["text"].HeaderText = "Question";
                 dataGridViewSurvey.Columns["text"].ReadOnly = true;
+                buttonSendSurvey.Enabled = true;
             }
             
         }
@@ -52,6 +54,8 @@ namespace TAKE_Client
                 textBoxDate.Text,
                 textBoxAdditionalInformation.Text,
                 answers));
+                textBoxAdditionalInformation.Text = String.Empty;
+                textBoxDate.Text = String.Empty;
             }
             else
             {
@@ -87,8 +91,7 @@ namespace TAKE_Client
             {
                 int num = comboBoxSurveys.Items.Add(survey.Element("date").Value + " - " + survey.Element("description").Value);
                 dictionarySurveys.Add(num, int.Parse(survey.Attribute("ids").Value));
-            }
-            dataGridViewSurvey.Columns.Add("answers", "Answer");
+            }            
         }
     }
 }
