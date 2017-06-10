@@ -36,6 +36,8 @@
             this.buttonShowAllTeachers = new System.Windows.Forms.Button();
             this.createNewTeacher1 = new TAKE_Client.CreateTeacher();
             this.tabAdminSurveys = new System.Windows.Forms.TabPage();
+            this.buttonAdminDeleteSurvey = new System.Windows.Forms.Button();
+            this.buttonAdminEditSurvey = new System.Windows.Forms.Button();
             this.dataGridQuestions = new System.Windows.Forms.DataGridView();
             this.buttonShowAllSurveys = new System.Windows.Forms.Button();
             this.dataGridSurveys = new System.Windows.Forms.DataGridView();
@@ -93,6 +95,7 @@
             // 
             // buttonDeleteTeacher
             // 
+            this.buttonDeleteTeacher.Enabled = false;
             this.buttonDeleteTeacher.Location = new System.Drawing.Point(673, 172);
             this.buttonDeleteTeacher.Name = "buttonDeleteTeacher";
             this.buttonDeleteTeacher.Size = new System.Drawing.Size(95, 23);
@@ -103,6 +106,7 @@
             // 
             // buttonEditTeacher
             // 
+            this.buttonEditTeacher.Enabled = false;
             this.buttonEditTeacher.Location = new System.Drawing.Point(592, 172);
             this.buttonEditTeacher.Name = "buttonEditTeacher";
             this.buttonEditTeacher.Size = new System.Drawing.Size(75, 23);
@@ -141,6 +145,8 @@
             // 
             // tabAdminSurveys
             // 
+            this.tabAdminSurveys.Controls.Add(this.buttonAdminDeleteSurvey);
+            this.tabAdminSurveys.Controls.Add(this.buttonAdminEditSurvey);
             this.tabAdminSurveys.Controls.Add(this.dataGridQuestions);
             this.tabAdminSurveys.Controls.Add(this.buttonShowAllSurveys);
             this.tabAdminSurveys.Controls.Add(this.dataGridSurveys);
@@ -154,14 +160,31 @@
             this.tabAdminSurveys.UseVisualStyleBackColor = true;
             this.tabAdminSurveys.Enter += new System.EventHandler(this.tabAdminSurveys_Enter);
             // 
+            // buttonAdminDeleteSurvey
+            // 
+            this.buttonAdminDeleteSurvey.Location = new System.Drawing.Point(494, 7);
+            this.buttonAdminDeleteSurvey.Name = "buttonAdminDeleteSurvey";
+            this.buttonAdminDeleteSurvey.Size = new System.Drawing.Size(272, 23);
+            this.buttonAdminDeleteSurvey.TabIndex = 14;
+            this.buttonAdminDeleteSurvey.Text = "Delete survey";
+            this.buttonAdminDeleteSurvey.UseVisualStyleBackColor = true;
+            this.buttonAdminDeleteSurvey.Click += new System.EventHandler(this.buttonAdminDeleteSurvey_Click);
+            // 
+            // buttonAdminEditSurvey
+            // 
+            this.buttonAdminEditSurvey.Location = new System.Drawing.Point(231, 7);
+            this.buttonAdminEditSurvey.Name = "buttonAdminEditSurvey";
+            this.buttonAdminEditSurvey.Size = new System.Drawing.Size(257, 23);
+            this.buttonAdminEditSurvey.TabIndex = 13;
+            this.buttonAdminEditSurvey.Text = "Edit survey";
+            this.buttonAdminEditSurvey.UseVisualStyleBackColor = true;
+            this.buttonAdminEditSurvey.Click += new System.EventHandler(this.buttonAdminEditSurvey_Click);
+            // 
             // dataGridQuestions
             // 
-            this.dataGridQuestions.AllowUserToAddRows = false;
-            this.dataGridQuestions.AllowUserToDeleteRows = false;
             this.dataGridQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridQuestions.Location = new System.Drawing.Point(8, 299);
             this.dataGridQuestions.Name = "dataGridQuestions";
-            this.dataGridQuestions.ReadOnly = true;
             this.dataGridQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridQuestions.Size = new System.Drawing.Size(758, 229);
             this.dataGridQuestions.TabIndex = 12;
@@ -181,11 +204,10 @@
             this.dataGridSurveys.AllowUserToAddRows = false;
             this.dataGridSurveys.AllowUserToDeleteRows = false;
             this.dataGridSurveys.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridSurveys.Location = new System.Drawing.Point(230, 6);
+            this.dataGridSurveys.Location = new System.Drawing.Point(230, 36);
             this.dataGridSurveys.Name = "dataGridSurveys";
-            this.dataGridSurveys.ReadOnly = true;
             this.dataGridSurveys.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridSurveys.Size = new System.Drawing.Size(536, 285);
+            this.dataGridSurveys.Size = new System.Drawing.Size(536, 255);
             this.dataGridSurveys.TabIndex = 10;
             // 
             // createSurvey1
@@ -343,6 +365,8 @@
         private System.Windows.Forms.Label labelTeacherName;
         private System.Windows.Forms.TabPage tabStudent;
         private StudentUserControl studentUserControl;
+        private System.Windows.Forms.Button buttonAdminDeleteSurvey;
+        private System.Windows.Forms.Button buttonAdminEditSurvey;
     }
 }
 

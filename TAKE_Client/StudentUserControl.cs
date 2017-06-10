@@ -32,6 +32,8 @@ namespace TAKE_Client
                 dataGridViewSurvey.Columns["idq"].Visible = false;
                 dataGridViewSurvey.Columns["text"].HeaderText = "Question";
                 dataGridViewSurvey.Columns["text"].ReadOnly = true;
+                dataGridViewSurvey.Columns["text"].DisplayIndex = 0;
+                dataGridViewSurvey.Columns["answers"].DisplayIndex = 1;
                 buttonSendSurvey.Enabled = true;
             }
             
@@ -42,9 +44,9 @@ namespace TAKE_Client
             Dictionary<int, string> answers = new Dictionary<int, string>();
             foreach (DataGridViewRow row in dataGridViewSurvey.Rows)
             {
-                if ((string)row.Cells["text"].Value != String.Empty)
+                if ((string)row.Cells["answers"].Value != String.Empty)
                 {
-                    answers.Add(int.Parse((string)row.Cells["idq"].Value), (string)row.Cells["text"].Value);
+                    answers.Add(int.Parse((string)row.Cells["idq"].Value), (string)row.Cells["answers"].Value);
                 }                
             }
             if (comboBoxTeachers.SelectedIndex >= 0)

@@ -109,7 +109,7 @@ namespace TAKE_Client
                     new XElement("idt", idt),
                     new XElement("filled",
                         new XElement("date", date),
-                        new XElement("descrpition", description)
+                        new XElement("description", description)
                         )
                     );
             foreach (var answer in answers)
@@ -143,6 +143,11 @@ namespace TAKE_Client
             return DoDelete("teacher/" + id.ToString());
         }
 
+        public static string DeleteSurvey(int id)
+        {
+            return DoDelete("survey/" + id.ToString());
+        }
+
         public static string EditTeacher(string name, string surname, int idt)
         {
             XElement request =
@@ -152,5 +157,17 @@ namespace TAKE_Client
                 );
             return DoPut("teacher/"+idt.ToString(), request);
         }
+        
+        public static string EditSurvey(string date, string description, string[] questions, int ids)
+        {
+            XElement request =
+                new XElement("survey",
+                    new XElement("date", date),
+                    new XElement("description", description)
+                    );
+                        foreach (string question in questions)
+                            request.Add(new XElement("questions", new XElement("text", question)));
+                        return DoPut("survey/"+ids.ToString(), request);
+         }
     }
 }
